@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %}Book{% endblock %}
+{% block content %}
+<h1>Barcha kitoblar ro'yxati:</h1>
+
+<form>
+    {% csrf_token %}
+    <input placeholder="qidir..." name="search" value="{{ search }}">
+    <button>
+        qidirish
+    </button>
+</form>
+
+<ol>
+    {% for book in books %}
+        <li><a href="{% url 'book' book.pk %}">{{ book.title }}</a> - {{ book.author }}</li>
+    {% endfor %}
+</ol>
+
+<p>qolgan bo'limlarga o'tish:</p>
+<a href="{% url 'user' %}">o'quvchilar</a>
+<br>
+<a href="{% url 'userbook' %}">o'quvchi kitoblari</a>
+<p>asosiy oynaga qaytish:</p>
+<a href="{% url 'home' %}">uy</a>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+<h1>Bizning maktabimizga xush kelibsiz</h1>
+
+<p>Maktabimizda bor barcha bo'limlar:</p>
+
+<a href="{% url 'books' %}">Kitoblar</a>
+<br>
+
+<a href="{% url 'user' %}">O'quvchilar</a>
+<br>
+
+<a href="{% url 'userbook' %}">O'quvchi kitoblari</a>
+
+{% endblock %}
