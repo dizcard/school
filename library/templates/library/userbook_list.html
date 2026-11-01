@@ -4,11 +4,34 @@
 
 {% block content %}
 
-<h1>Barcha o'quvchilar o'qiyotgan kitoblar ro'yxati:</h1>
+<h1>O'quvchilar o'qiydigan kitoblar ro'yxati:</h1>
+
+<form method="GET">
+    <input
+        type="text"
+        name="search"
+        placeholder="Ism yoki familiya qidir..."
+        value="{{ search }}"
+    >
+
+    <button type="submit">
+        Qidirish
+    </button>
+
+    <a href="{% url 'userbooks' %}">
+        Tozalash
+    </a>
+</form>
+
+<hr>
 
 <ol>
-    {% for userbook in userbooks %}
-        <li>{{ userbook.user.first_name }} - {{ userbook.book.title }}</li>
+    {% for userbooks in users %}
+        <li>
+            {{ userbooks.user }} - {{ userbooks.book }}
+        </li>
+    {% empty %}
+        <p>O'quvchi o'qiyturgan kitoblari topilmadi!</p>
     {% endfor %}
 </ol>
 
@@ -17,7 +40,7 @@
 <a href="{% url 'books' %}">Kitoblar</a>
 <br>
 
-<a href="{% url 'user' %}">O'quvchilar</a>
+<a href="{% url 'users' %}">O'quvchi kitoblari</a>
 
 <p>Asosiy oynaga qaytish:</p>
 

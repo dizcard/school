@@ -10,5 +10,15 @@
     {{ book.title }} kitobini egasi: {{ book.author }}
     tarifi: {{ book.description }}
 </h3>
+<br>
+<h2>Qolgan bo'limlarga o'tish:</h2>
 
+<a href="{% url 'books' %}">Kitoblar</a>
+<br>
+
+<a href="{% url 'userbook' %}">O'quvchi kitoblari</a>
+
+<h2>Asosiy oynaga qaytish:</h2>
+
+<a href="{% url 'home' %}">Uy</a>
 {% endblock %}

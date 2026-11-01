@@ -61,12 +61,19 @@ class UserView(View):
 
 class UserBookView(View):
     def get(self, request):
-        userbooks = UserBook.objects.all()
+        search = request.GET.get("search","")
+        if search:
+            users = User.objects.filter(
+                Q(user__icontains=search) |
+                Q(book__icontains=search)
+            )
+        else:
+            userbook = UserBook.objects.all()
         return render(
             request,
-            "library/userbook_list.html",
+            "library/user_list.html",
             {
-                "userbooks": userbooks
+                "userbook": userbook,
+                "search": search
             }
         )
-print(123)
