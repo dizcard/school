@@ -17,10 +17,13 @@
     {% endfor %}
 </ol>
 
-<p>qolgan bo'limlarga o'tish:</p>
-<a href="{% url 'user' %}">o'quvchilar</a>
-<br>
-<a href="{% url 'userbook' %}">o'quvchi kitoblari</a>
-<p>asosiy oynaga qaytish:</p>
-<a href="{% url 'home' %}">uy</a>
+<h2>Qolgan bo'limlarga o'tish:</h2>
+
+<a href="{% url 'users' %}"><h3>O'quvchilar</h3></a>
+
+<a href="{% url 'userbook' %}"><h3>O'quvchi kitoblari</h3></a>
+
+<h2>Asosiy oynaga qaytish:</h2>
+
+<a href="{% url 'home' %}"><h3>Uy</h3></a>
 {% endblock %}

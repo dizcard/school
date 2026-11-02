@@ -35,15 +35,13 @@
     {% endfor %}
 </ol>
 
-<p>Qolgan bo'limlarga o'tish:</p>
+<h2>Qolgan bo'limlarga o'tish:</h2>
 
-<a href="{% url 'books' %}">Kitoblar</a>
-<br>
+<a href="{% url 'books' %}"><h3>Kitoblar</h3></a>
 
-<a href="{% url 'users' %}">O'quvchi kitoblari</a>
+<a href="{% url 'users' %}"><h3>O'quvchilar</h3></a>
 
-<p>Asosiy oynaga qaytish:</p>
+<h2>Asosiy oynaga qaytish:</h2>
 
-<a href="{% url 'home' %}">Uy</a>
-
+<a href="{% url 'home' %}"><h3>Uy</h3></a>
 {% endblock %}

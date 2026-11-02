@@ -8,12 +8,14 @@
 
 <p>Maktabimizda bor barcha bo'limlar:</p>
 
-<a href="{% url 'books' %}">Kitoblar</a>
-<br>
+<h2>Qolgan bo'limlarga o'tish:</h2>
 
-<a href="{% url 'user' %}">O'quvchilar</a>
-<br>
+<a href="{% url 'books' %}"><h3>Kitoblar</h3></a>
 
-<a href="{% url 'userbook' %}">O'quvchi kitoblari</a>
+<a href="{% url 'users' %}"><h3>O'quvchilar</h3></a>
+
+<a href="{% url 'userbook' %}"><h3>O'quvchi kitoblari</h3></a>
+
+
 
 {% endblock %}
