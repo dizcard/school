@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}User{% endblock %}
+{% block content %}
+
+<h1>{{ userbook.user }} haqida to'liq ma'lumot</h1>
+<h2>
+    {{ userbook.user }} bizning saytimizda  {{ userbook.book }} shu kitobni {{userbook.olindi}} vaqtida olgan
+</h2>
+<h3>
+    {{ userbook.user }}ni yaxshi kurgan kitobi {{ userbook.book }}
+</h3>
+<h2>
+    {{ userbook.user }} kitobni {{}} vaqtdan beri uqiydi
+</h2>
+<h2>
+    Qolgan bo'limlarga o'tish:
+</h2>
+
+<a href="{% url 'books' %}"><h3>Kitoblar</h3></a>
+
+<a href="{% url 'userbooks' %}"><h3>O'quvchi kitoblari</h3></a>
+
+<h2>Asosiy oynaga qaytish:</h2>
+
+<a href="{% url 'home' %}"><h3>Uy</h3></a>
+{% endblock %}

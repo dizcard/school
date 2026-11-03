@@ -1,37 +1,19 @@
 {% extends 'base.html' %}
-
 {% block title %}User{% endblock %}
-
 {% block content %}
-
 <h1>Barcha o'quvchilar ro'yxati:</h1>
 
-<form method="GET">
-    <input
-        type="text"
-        name="search"
-        placeholder="Ism yoki familiya qidir..."
-        value="{{ search }}"
-    >
-
-    <button type="submit">
-        Qidirish
+<form>
+    {% csrf_token %}
+    <input placeholder="qidir..." name="search" value="{{ search }}">
+    <button>
+        qidirish
     </button>
-
-    <a href="{% url 'user' %}">
-        Tozalash
-    </a>
 </form>
-
-<hr>
 
 <ol>
     {% for user in users %}
-        <li>
-            {{ user.first_name }} - {{ user.last_name }}
-        </li>
-    {% empty %}
-        <p>O'quvchi topilmadi!</p>
+        <li><a href="{% url 'user' user.pk %}">{{ user.first_name }}</a> - {{ user.last_name }}</li>
     {% endfor %}
 </ol>
 
@@ -39,10 +21,9 @@
 
 <a href="{% url 'books' %}"><h3>Kitoblar</h3></a>
 
-<a href="{% url 'userbook' %}"><h3>O'quvchi kitoblari</h3></a>
+<a href="{% url 'userbooks' %}"><h3>O'quvchi kitoblari</h3></a>
 
 <h2>Asosiy oynaga qaytish:</h2>
 
 <a href="{% url 'home' %}"><h3>Uy</h3></a>
-
 {% endblock %}

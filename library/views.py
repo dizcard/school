@@ -58,12 +58,21 @@ class UserView(View):
                 "search": search
             }
         )
-
+class DetailUserView(View):
+    def get(self, request, pk):
+        user = User.objects.get(pk=pk)
+        return render(
+            request,
+            "library/detail_user.html",
+            {
+                "user": user
+            }
+        )
 class UserBookView(View):
     def get(self, request):
         search = request.GET.get("search","")
         if search:
-            users = User.objects.filter(
+            userbook = User.objects.filter(
                 Q(user__icontains=search) |
                 Q(book__icontains=search)
             )
@@ -71,9 +80,19 @@ class UserBookView(View):
             userbook = UserBook.objects.all()
         return render(
             request,
-            "library/user_list.html",
+            "library/userbook_list.html",
             {
                 "userbook": userbook,
                 "search": search
+            }
+        )
+class DetailUserBookView(View):
+    def get(self, request, pk):
+        userbook = UserBook.objects.get(pk=pk)
+        return render(
+            request,
+            "library/detail_userbook.html",
+            {
+                "userbook": userbook
             }
         )

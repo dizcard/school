@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}User{% endblock %}
+{% block content %}
+
+<h1>{{ user.first_name }} haqida to'liq ma'lumot</h1>
+<h2>
+    {{ user.first_name }} bizning saytimizda  {{ user.role }} roli bo'yicha yo'nalish olib boradi
+</h2>
+<h3>
+    {{ user.first_name }}ning familiyasi: {{ user.last_name }}
+</h3>
+<h2>
+    {{ user.first_name }}ning yoshi: {{ user.age }}
+</h2>
+<h2>
+    Qolgan bo'limlarga o'tish:
+</h2>
+
+<a href="{% url 'books' %}"><h3>Kitoblar</h3></a>
+
+<a href="{% url 'userbooks' %}"><h3>O'quvchi kitoblari</h3></a>
+
+<h2>Asosiy oynaga qaytish:</h2>
+
+<a href="{% url 'home' %}"><h3>Uy</h3></a>
+{% endblock %}
